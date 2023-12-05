@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# Swarm Donation web component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple widget that can be added to any HTML page. It renders an element that prints the time-to-live of the postage stamp that was used to upload the resource to the Swarm network, along with an arbitrary Ethereum address.
 
-Currently, two official plugins are available:
+The component gives readers two options to support the author:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Sending tips to the Ethereum address
+-   Topping up the postage stamp, lengthening the hosting
 
-## Expanding the ESLint configuration
+## Swarm network
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Swarm is a peer-to-peer network of Bee nodes that collectively provide censorship resistant decentralised storage and communication services.
 
-- Configure the top-level `parserOptions` property like this:
+## Example Usage
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Replace `<ethereumAddress>` and `<stamp>`. When built into static site generators, these steps should be handled automatically for the end user.
+
+```
+<div id="donation"></div>
+<script src="https://cdn.jsdelivr.net/npm/swarm-donation@4.0.0"></script>
+<script>
+   renderSwarmDonation('donation', '<ethereumAddress>', '<stamp>')
+</script>
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Recommended Usage
+
+Upload the `js` file to the Swarm network, and refer that instead of the CDN.
+
+## Etherjot
+
+This web component is also available as an extension in [Etherjot](https://github.com/ethersphere/etherjot-web).
