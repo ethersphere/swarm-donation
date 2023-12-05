@@ -1,6 +1,6 @@
 {
     "name": "swarm-donation",
-    "version": "1.1.0",
+    "version": "4.0.0",
     "files": [
         "dist"
     ],
@@ -20,11 +20,10 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@ethersphere/bee-js": "^6.5.0",
+        "axios": "^1.6.2",
         "cafe-utility": "^11.0.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "swarm-donation-lib": "^1.1.0",
         "sweetalert2": "^11.9.0"
     },
     "devDependencies": {

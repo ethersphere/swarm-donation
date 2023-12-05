@@ -1,5 +1,5 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { getCurrentTimeToLive } from 'swarm-donation-lib'
 
 interface Props {
     batchId: string
@@ -27,4 +27,10 @@ export function TimeToLiveText({ batchId }: Props) {
     }
 
     return <p>Paid until: {new Date(Date.now() + timeToLive * 1000).toDateString()}</p>
+}
+
+async function getCurrentTimeToLive(batchId: string): Promise<number | null> {
+    const stamps = (await axios('http://localhost:1635/stamps')) as any
+    const stamp = stamps.data.stamps.find((stamp: any) => stamp.batchID === batchId)
+    return stamp?.batchTTL || null
 }
